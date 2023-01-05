@@ -1,5 +1,39 @@
-<div class="container">
-
-    
-
+<div class="container-fluid" style="margin-top: 15px;">
+    <div class="card" style="width:auto">
+        <div class="card-header">
+            <h3>personajes</h3>
+            <input 
+            name="filterPersonaje" 
+            type="text" 
+            class="form-control" 
+            placeholder="filtrar por nombre, tipo, dimension o fecha" 
+            [(ngModel)]="filterPersonaje">
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>TIPO</th>
+                        <th>DIMENCIÓN</th>
+                        <th>RESIDENTES</th>
+                        <th>CREADO</th>
+                        <th>URL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let personaje of personajes |filter:filterPersonaje" class="text-center">
+                        <td>{{personaje.id}}</td>
+                        <td>{{personaje.name}}</td>
+                        <td>{{personaje.type}}</td>
+                        <td>{{personaje.dimension}}</td>
+                        <td>{{personaje.residents.length}}</td>
+                        <td>{{personaje.created}}</td>
+                        <td>{{personaje.url}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

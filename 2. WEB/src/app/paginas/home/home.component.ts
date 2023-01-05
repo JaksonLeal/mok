@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { personaje } from 'src/app/modelo/personaje';
 import { PersonajesService } from 'src/app/servicios/personajes.service';
 
 @Component({
@@ -8,20 +9,22 @@ import { PersonajesService } from 'src/app/servicios/personajes.service';
 })
 export class HomeComponent implements OnInit {
 
+  public personajes:any;
+  public filterPersonaje:any = "";
+
   constructor( private personajesService: PersonajesService) { }
 
   ngOnInit(): void {
 
-    this.prueba();
-
-  }
-
-  prueba(){
-    this.personajesService.listarPersonajes().subscribe( data => {
-      console.log(data);
+    this.personajesService.listarPersonajes().subscribe( (data:any) => {
+      this.personajes = data.results;
+      console.log(this.personajes);
     }
-
     );
+    
   }
 
 }
+
+
+

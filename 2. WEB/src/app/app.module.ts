@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { SidebarComponent } from './componentes/sidebar/sidebar.component';
 import { HomeComponent } from './paginas/home/home.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { HomeComponent } from './paginas/home/home.component';
     NavbarComponent,
     SidebarComponent,
     HomeComponent,
+    FilterPipe,
     
   ],
   imports: [
@@ -28,7 +31,8 @@ import { HomeComponent } from './paginas/home/home.component';
     HttpClientModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
