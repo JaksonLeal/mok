@@ -7,22 +7,25 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { SidebarComponent } from './componentes/sidebar/sidebar.component';
-import { PersonajesComponent } from './servicios/personajes/personajes.component';
+import { HomeComponent } from './paginas/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SidebarComponent,
-    PersonajesComponent
+    HomeComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule
