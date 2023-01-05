@@ -9,8 +9,10 @@ import { PersonajesService } from 'src/app/servicios/personajes.service';
 })
 export class HomeComponent implements OnInit {
 
-  public personajes:any;
+  public personajes: personaje[] = [];
   public filterPersonaje:any = "";
+
+  public page!:number;
 
   constructor( private personajesService: PersonajesService) { }
 

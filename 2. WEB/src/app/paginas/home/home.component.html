@@ -2,16 +2,12 @@
     <div class="card" style="width:auto">
         <div class="card-header">
             <h3>personajes</h3>
-            <input 
-            name="filterPersonaje" 
-            type="text" 
-            class="form-control" 
-            placeholder="filtrar por nombre, tipo, dimension o fecha" 
-            [(ngModel)]="filterPersonaje">
+            <input name="filterPersonaje" type="text" class="form-control"
+                placeholder="filtrar por nombre, tipo, dimension o fecha" [(ngModel)]="filterPersonaje">
         </div>
         <div class="card-body">
             <table class="table table-striped">
-                <thead class="table-dark text-center">
+                <thead class="bcolor text-center">
                     <tr>
                         <th>ID</th>
                         <th>NOMBRE</th>
@@ -23,7 +19,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let personaje of personajes |filter:filterPersonaje" class="text-center">
+                    <tr *ngFor="let personaje of personajes |filter:filterPersonaje | paginate: { itemsPerPage: 10, currentPage: page }"
+                        class="text-center">
                         <td>{{personaje.id}}</td>
                         <td>{{personaje.name}}</td>
                         <td>{{personaje.type}}</td>
@@ -35,5 +32,7 @@
                 </tbody>
             </table>
         </div>
+        <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
     </div>
 </div>
+
